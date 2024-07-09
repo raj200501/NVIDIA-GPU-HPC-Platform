@@ -1,0 +1,51 @@
+# Java and Spring Boot
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs
+logs/
+*.log
+
+# Docker
+*.swp
+docker-compose.override.yml
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Kubernetes
+k8s_deployments/*.yaml
+
+# Others
+.env
