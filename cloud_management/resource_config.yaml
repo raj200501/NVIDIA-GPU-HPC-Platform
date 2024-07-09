@@ -1,0 +1,13 @@
+resources:
+  - type: cpu
+    threshold: 70
+    scale_up_replicas: 5
+    scale_down_replicas: 2
+    target: deployment/sensor-data-producer
+  - type: memory
+    threshold: 75
+    scale_up_replicas: 5
+    scale_down_replicas: 2
+    target: deployment/data-transformer
+
+interval: 10
