@@ -78,12 +78,12 @@ NVIDIA-GPU-HPC-Platform is poised to transform industries across the globe. From
 
 ## 🤝 Get Involved
 
-Join us on this exciting journey! We welcome contributions from developers, researchers, and enthusiasts. Check out our contribution guidelines and start contributing today.
+Join me on this exciting journey! I welcome contributions from developers, researchers, and enthusiasts. Check out nthe contribution guidelines and start contributing today.
 
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Contact Us
+## 📞 Contact Me
 
-Have questions? Reach out to us at [rajskashikar@gmail.com](mailto:rajskashikar@gmail.com).
+Have questions? Reach out to me at [rajskashikar@gmail.com](mailto:rajskashikar@gmail.com).
