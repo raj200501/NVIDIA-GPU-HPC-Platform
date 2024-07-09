@@ -1,0 +1,9 @@
+instances:
+  - example-instance
+
+bucket: example-bucket
+
+backup_command: "tar -czf /tmp/backup.tar.gz /var/data && gsutil cp /tmp/backup.tar.gz gs://{bucket_name}/backup.tar.gz"
+update_command: "sudo apt-get update && sudo apt-get upgrade -y"
+
+interval: 3600
