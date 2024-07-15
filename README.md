@@ -66,13 +66,13 @@ Welcome to **NVIDIA-GPU-HPC-Platform**, the ultimate high-performance computing 
 ## 📊 Results Demonstration
 
 ### GPU Utilization Over Time with Increasing Load
-![GPU Utilization Over Time with Increasing Load](GPU Utilization Over Time with Increasing Load.png)
+![GPU Utilization Over Time with Increasing Load](https://github.com/user-attachments/assets/f7bf760d-8433-4501-b33c-3c47711796d6)
 
 ### Performance Improvement with GPU Acceleration
-![Performance Improvement with GPU Acceleration](GPU ACceleration Results.png)
+![GPU Acceleration Results](https://github.com/user-attachments/assets/f4c286d9-1126-411e-b938-ae7f17e24330)
 
 ### Real-Time Data Processing Latency Improvement
-![Real-Time Data Processing Latency Improvement](Real-Time Data Processing Latency Improvement.png)
+![Real-Time Data Processing Latency Improvement](https://github.com/user-attachments/assets/0f2a7e5d-d725-4d86-8d25-7ef5f4d87eaf)
 
 
 ### Unmatched Efficiency
