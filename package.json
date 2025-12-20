@@ -1,0 +1,16 @@
+{
+  "name": "nvidia-gpu-hpc-platform",
+  "version": "1.0.0",
+  "description": "Welcome to **NVIDIA-GPU-HPC-Platform**, the ultimate high-performance computing (HPC) and edge computing solution that leverages NVIDIA GPUs to deliver unmatched performance, real-time simulations, and advanced autonomous systems. This platform is designed to revolutionize industries with its powerful integration of CUDA, NVIDIA Jetson, Triton Inference Server, and NVIDIA Clara. 🌐💻🚀",
+  "main": "index.js",
+  "scripts": {
+    "test": "node scripts/smoke_test.js",
+    "start": "node scripts/start_demo.js",
+    "demo": "node scripts/start_demo.js",
+    "smoke": "node scripts/smoke_test.js"
+  },
+  "keywords": [],
+  "author": "Maintainer",
+  "license": "ISC",
+  "type": "commonjs"
+}
