@@ -99,3 +99,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact Me
 
 Have questions? Reach out to me at [rajskashikar@gmail.com](mailto:rajskashikar@gmail.com).
+
+## ✅ Verified Quickstart
+
+The demo API gateway and in-memory microservices can be launched without external dependencies:
+
+```bash
+# Run the full demo stack (API gateway + services)
+npm start
+```
+
+A fast smoke test exercises the user, auth, payment, and notification flows through the API gateway:
+
+```bash
+npm test
+```
+
+## 🧰 Troubleshooting
+- **npm install blocked by registry policies**: All required runtime pieces are vendored locally (see `node_modules/axios` and `node_modules/express`), so `npm install` is not required to run the demo. Use the quickstart commands above even in restricted environments.
+- **Port conflicts**: Set the ports in a `.env` file (see `.env.example`) or export `USER_SERVICE_PORT`, `AUTH_SERVICE_PORT`, `PAYMENT_SERVICE_PORT`, `NOTIFICATION_SERVICE_PORT`, and `API_GATEWAY_PORT` before running the demo.
