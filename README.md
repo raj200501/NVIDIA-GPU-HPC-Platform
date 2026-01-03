@@ -1,6 +1,6 @@
 # 🌟 NVIDIA-GPU-HPC-Platform 🌟
 
-Welcome to **NVIDIA-GPU-HPC-Platform**, the ultimate high-performance computing (HPC) and edge computing solution that leverages NVIDIA GPUs to deliver unmatched performance, real-time simulations, and advanced autonomous systems. This platform is designed to revolutionize industries with its powerful integration of CUDA, NVIDIA Jetson, Triton Inference Server, and NVIDIA Clara. 🌐💻🚀 
+Welcome to **NVIDIA-GPU-HPC-Platform**, the ultimate high-performance computing (HPC) and edge computing solution that leverages NVIDIA GPUs to deliver unmatched performance, real-time simulations, and advanced autonomous systems. This platform is designed to revolutionize industries with its powerful integration of CUDA, NVIDIA Jetson, Triton Inference Server, and NVIDIA Clara. 🌐💻🚀
  
 ## 🚀 Project Overview
 
