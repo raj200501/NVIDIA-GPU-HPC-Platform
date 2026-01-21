@@ -25,3 +25,36 @@ git push origin my-feature-branch
 ```
 ### Create a pull request: Go to the original repository and click 'New Pull Request'.
 ## Thank you for your contributions!
+
+## Developer Workflow
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run the Demo Stack
+
+```bash
+npm start
+```
+
+### Run Tests
+
+```bash
+npm test
+node --test
+```
+
+### Run Full Verification
+
+```bash
+bash scripts/verify.sh
+```
+
+### Environment Diagnostics
+
+```bash
+bash scripts/doctor.sh
+```

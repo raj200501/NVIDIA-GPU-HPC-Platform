@@ -118,3 +118,43 @@ npm test
 ## 🧰 Troubleshooting
 - **npm install blocked by registry policies**: All required runtime pieces are vendored locally (see `node_modules/axios` and `node_modules/express`), so `npm install` is not required to run the demo. Use the quickstart commands above even in restricted environments.
 - **Port conflicts**: Set the ports in a `.env` file (see `.env.example`) or export `USER_SERVICE_PORT`, `AUTH_SERVICE_PORT`, `PAYMENT_SERVICE_PORT`, `NOTIFICATION_SERVICE_PORT`, and `API_GATEWAY_PORT` before running the demo.
+
+## ⚡ Quickstart (60 seconds)
+
+```bash
+npm start
+```
+
+In another terminal:
+
+```bash
+npm test
+```
+
+## 🎬 Demo
+
+- `npm run demo:mode` runs the demo flow in a temporary directory and writes a summary file.
+- Full demo steps: see [docs/DEMO.md](docs/DEMO.md).
+
+## ✅ Verification
+
+Run the full verification suite (lint, unit tests, smoke test, and build if configured):
+
+```bash
+bash scripts/verify.sh
+```
+
+## 🧭 Project Structure
+
+- `api/` — API gateway service routing requests to the demo services.
+- `demo_services/` — in-memory microservices (user, auth, payment, notification).
+- `scripts/` — demo cluster orchestration and verification utilities.
+- `observability/` — optional structured logging + metrics scaffolding.
+- `tests/` — unit and smoke tests using the Node.js test runner.
+- `docs/` — architecture, demo, security, and release checklist.
+
+## 🧠 Design Decisions
+
+- **Additive, opt-in enhancements**: new health checks, metrics, and structured logs are disabled by default.
+- **Offline-safe verification**: tests target localhost only and avoid external dependencies.
+- **Fast demo loops**: in-memory storage keeps the demo deterministic and easy to reset.

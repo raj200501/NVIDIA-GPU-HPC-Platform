@@ -7,7 +7,14 @@
     "test": "node scripts/smoke_test.js",
     "start": "node scripts/start_demo.js",
     "demo": "node scripts/start_demo.js",
-    "smoke": "node scripts/smoke_test.js"
+    "smoke": "node scripts/smoke_test.js",
+    "test:unit": "node --test",
+    "test:smoke": "node scripts/smoke_test.js",
+    "lint": "bash scripts/lint.sh",
+    "fmt": "node -e \"console.log('No formatter configured. Run scripts/lint.sh for syntax checks.')\"",
+    "verify": "bash scripts/verify.sh",
+    "doctor": "bash scripts/doctor.sh",
+    "demo:mode": "node scripts/demo_mode.js --demo"
   },
   "keywords": [],
   "author": "Maintainer",

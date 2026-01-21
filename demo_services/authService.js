@@ -1,8 +1,36 @@
 const express = require('express');
+const { createLogger, requestLoggerMiddleware } = require('../observability/logger');
+const { createMetrics } = require('../observability/metrics');
+const { initOpenTelemetry } = require('../observability/otel');
 
 function startAuthService(store, port = 8081) {
   const app = express();
   app.use(express.json());
+  const logger = createLogger({ serviceName: 'auth-service' });
+  const metricsEnabled = process.env.ENABLE_METRICS === '1';
+  const metrics = metricsEnabled ? createMetrics({ serviceName: 'auth-service' }) : null;
+  const healthEnabled = process.env.ENABLE_HEALTH_ENDPOINT === '1';
+  const metricsEndpointEnabled = metricsEnabled && process.env.ENABLE_METRICS_ENDPOINT === '1';
+
+  if (logger.enabled) {
+    app.use(requestLoggerMiddleware(logger));
+  }
+
+  if (metricsEnabled && metrics) {
+    app.use(metrics.middleware);
+  }
+
+  if (healthEnabled) {
+    app.get('/health', (req, res) => {
+      res.json({ status: 'ok', service: 'auth-service', timestamp: new Date().toISOString() });
+    });
+  }
+
+  if (metricsEndpointEnabled && metrics) {
+    app.get('/metrics', (req, res) => {
+      res.json(metrics.snapshot());
+    });
+  }
 
   app.post('/auth/login', (req, res) => {
     const { email, password } = req.body || {};
@@ -30,7 +58,12 @@ function startAuthService(store, port = 8081) {
 
   const server = app.listen(port, () => {
     console.log(`Auth service running on port ${port}`);
+    if (logger.enabled) {
+      logger.info('service_started', { port });
+    }
   });
+
+  initOpenTelemetry({ serviceName: 'auth-service' });
 
   return server;
 }
