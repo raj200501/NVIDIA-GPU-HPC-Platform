@@ -1,5 +1,8 @@
 const express = require('express');
 const axios = require('axios');
+const { createLogger, requestLoggerMiddleware } = require('../observability/logger');
+const { createMetrics } = require('../observability/metrics');
+const { initOpenTelemetry } = require('../observability/otel');
 
 function startApiGateway({
   port = 3000,
@@ -10,6 +13,31 @@ function startApiGateway({
 } = {}) {
   const app = express();
   app.use(express.json());
+  const logger = createLogger({ serviceName: 'api-gateway' });
+  const metricsEnabled = process.env.ENABLE_METRICS === '1';
+  const metrics = metricsEnabled ? createMetrics({ serviceName: 'api-gateway' }) : null;
+  const healthEnabled = process.env.ENABLE_HEALTH_ENDPOINT === '1';
+  const metricsEndpointEnabled = metricsEnabled && process.env.ENABLE_METRICS_ENDPOINT === '1';
+
+  if (logger.enabled) {
+    app.use(requestLoggerMiddleware(logger));
+  }
+
+  if (metricsEnabled && metrics) {
+    app.use(metrics.middleware);
+  }
+
+  if (healthEnabled) {
+    app.get('/health', (req, res) => {
+      res.json({ status: 'ok', service: 'api-gateway', timestamp: new Date().toISOString() });
+    });
+  }
+
+  if (metricsEndpointEnabled && metrics) {
+    app.get('/metrics', (req, res) => {
+      res.json(metrics.snapshot());
+    });
+  }
 
   app.get('/api/users', async (req, res) => {
     try {
@@ -58,7 +86,12 @@ function startApiGateway({
 
   const server = app.listen(port, () => {
     console.log(`API Gateway is running on port ${port}`);
+    if (logger.enabled) {
+      logger.info('service_started', { port });
+    }
   });
+
+  initOpenTelemetry({ serviceName: 'api-gateway' });
 
   return server;
 }
